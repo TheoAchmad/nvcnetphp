@@ -1,0 +1,16 @@
+{
+	"PHP Tag": {
+	  "prefix": "php",
+	  "body": [
+		"<?php $1 ?>"
+	  ],
+	  "description": "Menambahkan tag PHP"
+	},
+	"PHP Echo Short Tag": {
+	  "prefix": "phpp",
+	  "body": [
+		"<?= $1 ?>"
+	  ],
+	  "description": "Menambahkan short tag PHP untuk echo"
+	}
+  }
