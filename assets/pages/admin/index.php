@@ -345,7 +345,7 @@
       <!-- [ Main Content ] start -->
       
         <?php 
-            include "./admin-page/form-kategori.php"
+            include "admin-page/form-pelanggan.php"
         ?>
 
     </div>

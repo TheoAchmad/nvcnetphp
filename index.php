@@ -15,7 +15,7 @@
       <a href="" class="active">HOME</a>
       <a href="assets/pages/about.php">ABOUT US</a>
       <a href="assets/pages/coverage.php">COVERAGE</a>
-      <a href="assets/pages/contact.php">CONTACT</a>
+      <a href="assets/pages/admin/index.php">CONTACT</a>
     </div>
 
     <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>

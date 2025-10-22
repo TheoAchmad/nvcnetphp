@@ -1,20 +1,12 @@
 <?php
-class Database{
-    private $connection;
-    
-    public function getConnection(){
-        $this->connection = null;
-        try{
-            $this->connection = new mysqli("localhost", "root", '', "nvcnet");
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "nvcnetwork";
 
-            if($this->connection->connect_error){
-                die("Connection failed: " . $this->connection->connect_error);
-            }
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-            $this->connection->set_charset("utf8");
-            return $this->connection;
-        }catch(Exception $e){
-            echo 'Connection failed : '.$e->getMessage();
-        }
-    }
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
+?>
