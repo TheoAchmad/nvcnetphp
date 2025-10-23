@@ -6,12 +6,28 @@
   <meta name="description" content="NVC Network by Provitel - Penyedia layanan internet cepat, stabil, dan terjangkau di Banyuwangi.">
   <title>NVC Network by Provitel</title>
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    function updateHarga() {
+      const paket = document.getElementById("jenis_paket").value;
+      const hargaInput = document.getElementById("harga");
+
+      if (paket === "1") {
+        hargaInput.value = 100000;
+      } else if (paket === "2") {
+        hargaInput.value = 150000;
+      } else if (paket === "3") {
+        hargaInput.value = 200000;
+      } else {
+        hargaInput.value = "";
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -90,14 +106,22 @@
       </p>
       <div class="line"></div>
 
-      <form action="#">
-        <input type="text" placeholder="Name" required>
+      <form action="/ProjekNVCNET/pages/admin/admin-page/proses-pelanggan.php" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required>
         <div class="form-row">
-          <input type="email" placeholder="Email*" required>
-          <input type="number" placeholder="Phone">
+          <input type="email" placeholder="Email" name="email"><br><br>
+          <input type="text" placeholder="No Hp" name="telepon"><br><br>
         </div>
-        <textarea rows="6" placeholder="Tell Us About Project*" required></textarea>
-        <button type="submit" class="btn-submit">
+        <input type="text" placeholder="Alamat" name="alamat">
+        <legend>Pilih Paket WiFi</legend>
+      <label>Paket:</label>
+      <select name="jenis_paket" id="jenis_paket" onchange="updateHarga()" required>
+        <option value="">-- Pilih Paket --</option>
+        <option value="1">Internet Broadband only - Rp100.000</option>
+        <option value="2">Internet Broadband Fast - Rp150.000</option>
+        <option value="3">Internet Broadband High - Rp200.000</option>
+      </select>
+        <button type="submit" value="Simpan" class="btn-submit">
           SEND MESSAGE <i class="fa-solid fa-paper-plane"></i>
         </button>
       </form>

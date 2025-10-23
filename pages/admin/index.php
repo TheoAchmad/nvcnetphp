@@ -345,7 +345,7 @@
       <!-- [ Main Content ] start -->
       
         <?php 
-            include "admin-page/form-pelanggan.php"
+            include "admin-page/dashboard.php"
         ?>
 
     </div>
