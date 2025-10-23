@@ -55,7 +55,7 @@
     <a href="#" class="logo-nav"><img src="../gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
-      <a href="../../index.php">HOME</a>
+      <a href="../index.php">HOME</a>
       <a href="../pages/about.php">ABOUT US</a>
       <a href="../pages/coverage.php">COVERAGE</a>
       <a href="" class="active">CONTACT</a>
@@ -111,6 +111,8 @@
         <div class="form-row">
           <input type="email" placeholder="Email" name="email"><br><br>
           <input type="text" placeholder="No Hp" name="telepon"><br><br>
+          <input type="hidden" name="source" value="contact">
+
         </div>
         <input type="text" placeholder="Alamat" name="alamat">
         <legend>Pilih Paket WiFi</legend>

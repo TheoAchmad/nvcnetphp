@@ -39,7 +39,7 @@
     <a href="#" class="logo-nav"><img src="../gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
-      <a href="../../index.php">HOME</a>
+      <a href="../index.php">HOME</a>
       <a href="../pages/about.php">ABOUT US</a>
       <a href="" class="active">COVERAGE</a>
       <a href="../pages/contact.php">CONTACT</a>

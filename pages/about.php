@@ -6,7 +6,7 @@
   <meta name="description" content="NVC Network by Provitel - Penyedia layanan internet cepat, stabil, dan terjangkau di Banyuwangi.">
   <title>NVC Network by Provitel</title>
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
     <a href="#" class="logo-nav"><img src="../gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
-      <a href="../../index.php">HOME</a>
+      <a href="../index.php">HOME</a>
       <a href="" class="active">ABOUT US</a>
       <a href="../pages/coverage.php">COVERAGE</a>
       <a href="../pages/contact.php">CONTACT</a>

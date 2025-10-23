@@ -4,12 +4,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Ambil data dari form
-$id       = $_POST['id'] ?? ''; // untuk edit
+$id       = $_POST['id'] ?? '';
 $nama     = $_POST['nama'] ?? '';
 $alamat   = $_POST['alamat'] ?? '';
 $email    = $_POST['email'] ?? '';
 $no_hp    = $_POST['telepon'] ?? '';
 $id_paket = $_POST['jenis_paket'] ?? '';
+$source   = $_POST['source'] ?? ''; // asal form
 
 // Validasi dasar
 if (empty($nama)) {
@@ -50,7 +51,14 @@ if ($id) {
     }
 }
 
-// ✅ Redirect ke dashboard setelah selesai
-header("Location: ../index.php");
-exit;
+// Redirect sesuai asal
+if ($source === 'contact') {
+    header("Location: ../../../pages/contact.php");
+    exit;
+} elseif ($source === 'dashboard') {
+    header("Location: dashboard.php");
+    exit;
+} else {
+    echo "✅ Data berhasil diproses.";
+}
 ?>
