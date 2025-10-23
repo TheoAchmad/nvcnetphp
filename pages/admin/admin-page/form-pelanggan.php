@@ -18,6 +18,9 @@ if ($id) {
 <h2><?= $edit ? 'Edit' : 'Tambah' ?> Pelanggan</h2>
 <form action="proses-pelanggan.php" method="POST">
   <input type="hidden" name="source" value="dashboard">
+  <?php if ($edit): ?>
+    <input type="hidden" name="id" value="<?= $id ?>">
+  <?php endif; ?>
   <input type="text" name="nama" placeholder="Nama" value="<?= $data['nama'] ?>" required><br>
   <input type="text" name="alamat" placeholder="Alamat" value="<?= $data['alamat'] ?>"><br>
   <input type="email" name="email" placeholder="Email" value="<?= $data['email'] ?>"><br>
