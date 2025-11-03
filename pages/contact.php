@@ -1,3 +1,12 @@
+<?php
+include_once __DIR__ . '/../assets/config/koneksi.php';
+
+$paketQuery = $conn->query("SELECT id_paket, nama_paket, harga FROM paket_wifi");
+$paketList = [];
+while ($row = $paketQuery->fetch_assoc()) {
+  $paketList[] = $row;
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,19 +23,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <script>
     function updateHarga() {
-      const paket = document.getElementById("jenis_paket").value;
-      const hargaInput = document.getElementById("harga");
-
-      if (paket === "1") {
-        hargaInput.value = 100000;
-      } else if (paket === "2") {
-        hargaInput.value = 150000;
-      } else if (paket === "3") {
-        hargaInput.value = 200000;
-      } else {
-        hargaInput.value = "";
-      }
-    }
+  const select = document.getElementById("id_paket");
+  const hargaInput = document.getElementById("harga");
+  const selectedOption = select.options[select.selectedIndex];
+  const harga = selectedOption.getAttribute("data-harga");
+  hargaInput.value = harga || "";
+}
   </script>
 </head>
 <body>
@@ -117,12 +119,14 @@
         <input type="text" placeholder="Alamat" name="alamat">
         <legend>Pilih Paket WiFi</legend>
       <label>Paket:</label>
-      <select name="jenis_paket" id="jenis_paket" onchange="updateHarga()" required>
-        <option value="">-- Pilih Paket --</option>
-        <option value="1">Internet Broadband only - Rp100.000</option>
-        <option value="2">Internet Broadband Fast - Rp150.000</option>
-        <option value="3">Internet Broadband High - Rp200.000</option>
-      </select>
+      <select name="id_paket" id="id_paket" onchange="updateHarga()" required>
+  <option value="">-- Pilih Paket --</option>
+  <?php foreach ($paketList as $paket): ?>
+    <option value="<?= $paket['id_paket'] ?>" data-harga="<?= $paket['harga'] ?>">
+      <?= htmlspecialchars($paket['nama_paket']) ?> - Rp<?= number_format($paket['harga'], 0, ',', '.') ?>
+    </option>
+  <?php endforeach; ?>
+</select>
         <button type="submit" value="Simpan" class="btn-submit">
           SEND MESSAGE <i class="fa-solid fa-paper-plane"></i>
         </button>

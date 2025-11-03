@@ -9,7 +9,7 @@ $nama     = $_POST['nama'] ?? '';
 $alamat   = $_POST['alamat'] ?? '';
 $email    = $_POST['email'] ?? '';
 $no_hp    = $_POST['telepon'] ?? '';
-$id_paket = $_POST['jenis_paket'] ?? '';
+$id_paket = $_POST['id_paket'] ?? '';
 $source   = $_POST['source'] ?? ''; // asal form
 
 // Validasi dasar
@@ -22,8 +22,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // MODE: UPDATE jika ada ID
 if ($id) {
-    $stmt = $conn->prepare("UPDATE pelanggan SET nama=?, alamat=?, email=?, no_hp=? WHERE id_pelanggan=?");
-    $stmt->bind_param("ssssi", $nama, $alamat, $email, $no_hp, $id);
+    $stmt = $conn->prepare("UPDATE pelanggan SET nama=?, alamat=?, email=?, no_hp=?, id_paket=? WHERE id_pelanggan=?");
+    $stmt->bind_param("ssssi", $nama, $alamat, $email, $no_hp, $id_paket, $id);
     $stmt->execute();
 } else {
     // Cek email duplikat
@@ -37,8 +37,8 @@ if ($id) {
     }
 
     // INSERT pelanggan
-    $stmt = $conn->prepare("INSERT INTO pelanggan (nama, alamat, email, no_hp) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $nama, $alamat, $email, $no_hp);
+    $stmt = $conn->prepare("INSERT INTO pelanggan (nama, alamat, email, no_hp, id_paket) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssi", $nama, $alamat, $email, $no_hp, $id_paket);
     $stmt->execute();
 
     $id_pelanggan = $stmt->insert_id;
