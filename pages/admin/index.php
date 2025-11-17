@@ -57,12 +57,12 @@ $page = $_GET['page'] ?? 'dashboard';
             <i class="ti ti-database"></i>
           </li>
 
-          <!-- <li class="pc-item <?php echo ($page == 'pelanggan') ? 'active' : ''; ?>">
+          <li class="pc-item <?php echo ($page == 'pelanggan') ? 'active' : ''; ?>">
             <a href="index.php?page=pelanggan" class="pc-link">
               <span class="pc-micon"><i class="ti ti-users"></i></span>
               <span class="pc-mtext">Pelanggan</span>
             </a>
-          </li> -->
+          </li>
 
           <li class="pc-item <?php echo ($page == 'paket') ? 'active' : ''; ?>">
             <a href="index.php?page=paket" class="pc-link">
@@ -82,17 +82,6 @@ $page = $_GET['page'] ?? 'dashboard';
             <a href="index.php?page=pembayaran" class="pc-link">
               <span class="pc-micon"><i class="ti ti-receipt-2"></i></span>
               <span class="pc-mtext">Pembayaran</span>
-            </a>
-          </li>
-
-          <li class="pc-item pc-caption">
-            <label>Tugas LKPD</label>
-            <i class="ti ti-book"></i>
-          </li>
-          <li class="pc-item <?php echo ($page == 'kategori') ? 'active' : ''; ?>">
-            <a href="index.php?page=kategori" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-tags"></i></span>
-              <span class="pc-mtext">Kategori Genre</span>
             </a>
           </li>
 
