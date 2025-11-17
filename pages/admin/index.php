@@ -12,14 +12,14 @@ $page = $_GET['page'] ?? 'dashboard';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin Dashboard - NVCNetwork</title>
+  <title>Admin NVCNetwork</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Admin Dashboard untuk MVCNetwork">
-  <meta name="author" content="MVCNetwork">
+  <meta name="description" content="Admin Dashboard untuk NVCNetwork">
+  <meta name="author" content="NVCNetwork">
 
-  <link rel="icon" href="./assets/images/favicon.svg" type="image/x-icon"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
+  <link rel="icon" href="./assets/images/Enhance_the_uploaded-removebg-preview.png" type="image/x-icon"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
   <link rel="stylesheet" href="./assets/fonts/tabler-icons.min.css">
   <link rel="stylesheet" href="./assets/fonts/feather.css">
   <link rel="stylesheet" href="./assets/fonts/fontawesome.css">
@@ -38,7 +38,7 @@ $page = $_GET['page'] ?? 'dashboard';
     <div class="navbar-wrapper">
       <div class="m-header">
         <a href="index.php?page=dashboard" class="b-brand text-primary">
-          <img src="./assets/images/logo-icon.svg" class="img-fluid logo-lg" alt="logo">
+          <!-- <img src="" class="img-fluid logo-lg" alt="logo"> -->
           <span class="b-brand-text">NVCNetwork</span>
         </a>
       </div>
@@ -140,13 +140,13 @@ $page = $_GET['page'] ?? 'dashboard';
           
           <li class="dropdown pc-h-item header-user-profile">
             <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-              <img src="./assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
+              <img src="./assets/images/user/1000050242.jpg" alt="user-image" class="user-avtar">
               <span>Admin NVC</span> </a>
             <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
               <div class="dropdown-header">
                 <div class="d-flex mb-1">
                   <div class="flex-shrink-0">
-                    <img src="./assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar wid-35">
+                    <img src="./assets/images/user/1000050242.jpg" alt="user-image" class="user-avtar wid-35">
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <h6 class="mb-1">Admin NVC</h6> <span>Administrator</span>
