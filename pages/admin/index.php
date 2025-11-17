@@ -226,7 +226,7 @@ $page = $_GET['page'] ?? 'dashboard';
       <div class="row">
         <div class="col-sm my-1">
           <p class="m-0">
-            Copyright © <?php echo date("Y"); ?> <a href="#" target="_blank">MVCNetwork</a>.
+            Copyright © <?php echo date("Y"); ?> <a href="#" target="_blank">NVCNetwork</a>.
           </p>
         </div>
         <div class="col-auto my-1">
