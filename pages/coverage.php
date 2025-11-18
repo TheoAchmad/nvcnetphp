@@ -81,7 +81,8 @@
           <li>Pendarungan</li>
           <li>Dan Area Sekitarnya...</li>
         </ul>
-        <button class="btn-coverage">BERLANGGANAN</button>
+        <!-- <button class="btn-coverage">BERLANGGANAN</button> -->
+        <a href="contact.php" class="btn-coverage">BERLANGGANAN</a>
       </div>
 
     </div>

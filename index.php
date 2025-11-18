@@ -29,7 +29,7 @@
       <img class="provitel" src="assets/gambar/provitel2remove.png" alt="Provitel Logo">
       <p>Navila Computer hadir memberikan solusi kebutuhan Internet Anda dengan kecepatan tinggi, harga terjangkau, dan jaminan true Unlimited.</p>
       <div class="tombol">
-        <a href="#coverage" class="tbl tbl-berlangganan">BERLANGGANAN</a>
+        <a href="pages/coverage.php" class="tbl tbl-berlangganan">BERLANGGANAN</a>
         <a href="#contact" class="tbl tbl-hubungi">HUBUNGI KAMI</a>
       </div>
     </div>
