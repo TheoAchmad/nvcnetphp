@@ -54,7 +54,7 @@ while ($row = $paketQuery->fetch_assoc()) {
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="#" class="logo-nav"><img src="../gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
+    <a href="#" class="logo-nav"><img src="../assets/gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
       <a href="../index.php">HOME</a>

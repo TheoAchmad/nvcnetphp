@@ -36,7 +36,7 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="#" class="logo-nav"><img src="../gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
+    <a href="#" class="logo-nav"><img src="../assets/gambar/Enhance_the_uploaded-removebg-preview.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
       <a href="../index.php">HOME</a>
@@ -50,7 +50,7 @@
 
   <section class="slider-container">
   <div class="slider">
-    <div class="slide"><img src="foto1.jpg" alt="Foto 1"></div>
+    <div class="slide"><img src="../assets/gambar/Gemini_Generated_Image_ea8gukea8gukea8g.png" alt="Foto 1"></div>
     <div class="slide"><img src="foto2.jpg" alt="Foto 2"></div>
     <div class="slide"><img src="foto3.jpg" alt="Foto 3"></div>
     <div class="slide"><img src="foto4.jpg" alt="Foto 4"></div>
