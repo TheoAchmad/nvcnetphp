@@ -52,9 +52,23 @@ $page = $_GET['page'] ?? 'dashboard';
             </a>
           </li>
 
+          <li class="pc-item <?php echo ($page == 'pembelian') ? 'active' : ''; ?>">
+            <a href="index.php?page=pembelian" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-receipt-2"></i></span>
+              <span class="pc-mtext">Pembelian</span>
+            </a>
+          </li>
+
           <li class="pc-item pc-caption">
             <label>Manajemen Data</label>
             <i class="ti ti-database"></i>
+          </li>
+
+          <li class="pc-item <?php echo ($page == 'paket') ? 'active' : ''; ?>">
+            <a href="index.php?page=paket" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-wifi"></i></span>
+              <span class="pc-mtext">Paket</span>
+            </a>
           </li>
 
           <li class="pc-item <?php echo ($page == 'pelanggan') ? 'active' : ''; ?>">
@@ -63,27 +77,13 @@ $page = $_GET['page'] ?? 'dashboard';
               <span class="pc-mtext">Pelanggan</span>
             </a>
           </li>
-
-          <li class="pc-item <?php echo ($page == 'paket') ? 'active' : ''; ?>">
-            <a href="index.php?page=paket" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-wifi"></i></span>
-              <span class="pc-mtext">Paket WiFi</span>
-            </a>
-          </li>
-
-          <li class="pc-item <?php echo ($page == 'pembelian') ? 'active' : ''; ?>">
-            <a href="index.php?page=pembelian" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-shopping-cart"></i></span>
-              <span class="pc-mtext">Pembelian</span>
-            </a>
-          </li>
           
-          <li class="pc-item <?php echo ($page == 'pembayaran') ? 'active' : ''; ?>">
+          <!-- <li class="pc-item <?php echo ($page == 'pembayaran') ? 'active' : ''; ?>">
             <a href="index.php?page=pembayaran" class="pc-link">
               <span class="pc-micon"><i class="ti ti-receipt-2"></i></span>
               <span class="pc-mtext">Pembayaran</span>
             </a>
-          </li>
+          </li> -->
 
         </ul>
 
@@ -177,22 +177,22 @@ $page = $_GET['page'] ?? 'dashboard';
           case 'dashboard':
               $fileToInclude = './admin-page/dashboard.php';
               break;
-          // case 'pelanggan':
-          //     $fileToInclude = './admin-page/form-pelanggan.php';
-          //     break;
+          case 'pelanggan':
+              $fileToInclude = './admin-page/pelanggan.php';
+              break;
           case 'paket':
-              $fileToInclude = './admin-page/form-paket.php';
+              $fileToInclude = './admin-page/paket.php';
               break;
           case 'pembelian':
-              $fileToInclude = './admin-page/form-pembelian.php';
+              $fileToInclude = './admin-page/pembelian.php';
               break;
-          case 'pembayaran':
-              // Anda perlu membuat file ini
-              $fileToInclude = './admin-page/form-pembayaran.php';
-              break;
-          case 'kategori':
-              $fileToInclude = './admin-page/form-kategori.php';
-              break;
+          // case 'pembayaran':
+          //     // Anda perlu membuat file ini
+          //     $fileToInclude = './admin-page/form-pembayaran.php';
+          //     break;
+          // case 'kategori':
+          //     $fileToInclude = './admin-page/form-kategori.php';
+          //     break;
           default:
               // Keamanan: jika ?page=... diisi aneh, kembali ke dashboard
               $fileToInclude = './admin-page/dashboard.php';

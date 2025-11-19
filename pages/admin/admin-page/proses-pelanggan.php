@@ -72,11 +72,11 @@ if ($id) {
     $id_pelanggan = $stmt->insert_id;
 
     // INSERT pembelian (opsional)
-    if (!empty($id_paket)) {
-        $stmt2 = $conn->prepare("INSERT INTO pembelian (id_pelanggan, id_paket, tanggal_pembelian) VALUES (?, ?, NOW())");
-        $stmt2->bind_param("ii", $id_pelanggan, $id_paket);
-        $stmt2->execute();
-    }
+    // if (!empty($id_paket)) {
+    //     $stmt2 = $conn->prepare("INSERT INTO pembelian (id_pelanggan, id_paket, tanggal_pembelian) VALUES (?, ?, NOW())");
+    //     $stmt2->bind_param("ii", $id_pelanggan, $id_paket);
+    //     $stmt2->execute();
+    // }
 }
 
 // Redirect sesuai asal

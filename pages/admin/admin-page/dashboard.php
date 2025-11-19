@@ -4,10 +4,10 @@ include_once __DIR__ . '/../../../assets/config/koneksi.php';
 $sql = "
   SELECT 
     p.id_pelanggan, p.nama, p.alamat, p.email, p.no_hp,
-    pw.nama_paket
+    pw.nama_paket, p.status
   FROM pelanggan p
   LEFT JOIN paket_wifi pw ON p.id_paket = pw.id_paket
-  LIMIT 100
+  ORDER BY p.id_pelanggan DESC
 ";
 $result = $conn->query($sql);
 ?>
@@ -20,141 +20,187 @@ $result = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #eef2f7;
+    :root {
+      --primary: #3498db;
+      --success: #27ae60;
+      --warning: #e67e22;
+      --danger: #e74c3c;
+      --gray: #7f8c8d;
+      --bg: #eef2f7;
     }
 
-    .table-container {
-      max-width: 1100px;
-      margin: 40px auto;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 20px;
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
       background: #fff;
       padding: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
     h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #2c3e50;
-      font-weight: 600;
+      margin-bottom: 25px;
       font-size: 24px;
+      font-weight: 700;
     }
 
-    .actions {
-      text-align: right;
-      margin-bottom: 15px;
-    }
-
-    .actions a {
-      background-color: #3498db;
-      color: white;
-      padding: 10px 16px;
+    .btn-add {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 6px;
       font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-
-    .actions a:hover {
-      background-color: #2980b9;
+      float: right;
+      margin-top: -50px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
-    td {
-      padding: 14px 18px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 180px;
-}
-
     th, td {
-      padding: 14px 18px;
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
       text-align: left;
-      border-bottom: 1px solid #ddd;
     }
 
     th {
-      background-color: #3498db;
-      color: white;
+      background: #f8f9fa;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 600;
+      text-transform: capitalize;
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
+    .booking { background: rgba(230, 126, 34, 0.15); color: var(--warning); }
+    .confirmed { background: rgba(39, 174, 96, 0.15); color: var(--success); }
+    .nonaktif { background: rgba(127, 140, 141, 0.15); color: var(--gray); }
+
+    .action-group {
+      display: flex;
+      gap: 8px;
     }
 
-    tr:hover {
-      background-color: #ecf6fc;
-    }
-
-    .crud-link {
-      text-decoration: none;
-      margin-right: 10px;
-      color: #3498db;
+    .btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 600;
-      transition: color 0.2s ease;
+      border: none;
+      cursor: pointer;
     }
 
-    .crud-link:hover {
-      color: #21618c;
-      text-decoration: underline;
+    .btn-edit {
+      background: rgba(52, 152, 219, 0.1);
+      color: var(--primary);
+    }
+
+    .btn-confirm {
+      background: rgba(39, 174, 96, 0.1);
+      color: var(--success);
+    }
+
+    .btn-batal {
+      background: rgba(231, 76, 60, 0.1);
+      color: var(--danger);
+    }
+
+    .btn-disabled {
+      background: #f0f0f0;
+      color: #aaa;
+      cursor: not-allowed;
     }
 
     .no-data {
       text-align: center;
-      padding: 20px;
-      color: #888;
+      padding: 40px;
+      color: var(--gray);
       font-style: italic;
     }
   </style>
 </head>
 <body>
 
-  <div class="table-container">
+  <div class="container">
     <h2>Data Pelanggan</h2>
-
-    <div class="actions">
-      <a href="/projeknvcnet/pages/admin/admin-page/form-pelanggan.php">+ Tambah Pelanggan</a>
-    </div>
+    <a href="admin-page/form-pelanggan.php" class="btn-add">+ Tambah</a>
 
     <table>
-      <tr>
-        <th>Nama</th>
-        <th>Alamat</th>
-        <th>Email</th>
-        <th>No HP</th>
-        <th>Paket Wifi</th>
-        <th>Aksi</th>
-      </tr>
-      <?php if ($result->num_rows > 0): ?>
-        <?php while ($row = $result->fetch_assoc()): ?>
-          <tr>
-            <td title="<?= htmlspecialchars($row['nama']) ?>"><?= htmlspecialchars($row['nama']) ?></td>
-            <td title="<?= htmlspecialchars($row['alamat']) ?>"><?= htmlspecialchars($row['alamat']) ?></td>
-            <td title="<?= htmlspecialchars($row['email']) ?>"><?= htmlspecialchars($row['email']) ?></td>
-            <td title="<?= htmlspecialchars($row['no_hp']) ?>"><?= htmlspecialchars($row['no_hp']) ?></td>
-            <td title="<?= htmlspecialchars($row['nama_paket']) ?>"><?= $row['nama_paket'] ? htmlspecialchars($row['nama_paket']) : '-' ?></td>
-            <td>
-              <a class="crud-link" href="/projeknvcnet/pages/admin/admin-page/form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>">✏️ Edit</a>
-              <a class="crud-link" href="/projeknvcnet/pages/admin/admin-page/hapus-pelanggan.php?id=<?= $row['id_pelanggan'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">🗑️ Hapus</a>
-            </td>
-          </tr>
-        <?php endwhile; ?>
-      <?php else: ?>
-        <tr><td colspan="6">Tidak ada data ditemukan.</td></tr>
-      <?php endif; ?>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>Email</th>
+          <th>No HP</th>
+          <th>Paket</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php if ($result->num_rows > 0): ?>
+          <?php while ($row = $result->fetch_assoc()): ?>
+            <?php
+              $status = $row['status'];
+              $badgeClass = match ($status) {
+                'booking' => 'booking',
+                'confirmed' => 'confirmed',
+                'nonaktif' => 'nonaktif',
+                default => ''
+              };
+            ?>
+            <tr>
+              <td>#<?= $row['id_pelanggan'] ?></td>
+              <td><?= htmlspecialchars($row['nama']) ?></td>
+              <td><?= htmlspecialchars($row['alamat']) ?></td>
+              <td><?= htmlspecialchars($row['email']) ?></td>
+              <td><?= htmlspecialchars($row['no_hp']) ?></td>
+              <td><?= $row['nama_paket'] ?? '<span style="color:#ccc">-</span>' ?></td>
+              <td><span class="badge <?= $badgeClass ?>"><?= $status ?></span></td>
+              <td>
+                <div class="action-group">
+                  <a href="form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>" class="btn btn-edit">Edit</a>
+
+                  <?php if ($status === 'booking'): ?>
+                    <form method="POST" action="admin-page/konfirmasi-pelanggan.php">
+                      <input type="hidden" name="id_pelanggan" value="<?= $row['id_pelanggan'] ?>">
+                      <button type="submit" class="btn btn-confirm">✅</button>
+                    </form>
+                  <?php elseif ($status === 'confirmed'): ?>
+                    <form method="POST" action="admin-page/batal-konfirmasi.php">
+                      <input type="hidden" name="id_pelanggan" value="<?= $row['id_pelanggan'] ?>">
+                      <button type="submit" class="btn btn-batal">❌</button>
+                    </form>
+                  <?php else: ?>
+                    <button class="btn btn-disabled" disabled>🚫</button>
+                  <?php endif; ?>
+                </div>
+              </td>
+            </tr>
+          <?php endwhile; ?>
+        <?php else: ?>
+          <tr><td colspan="8" class="no-data">Tidak ada data pelanggan ditemukan.</td></tr>
+        <?php endif; ?>
+      </tbody>
     </table>
   </div>
 
