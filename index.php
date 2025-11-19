@@ -30,7 +30,7 @@
       <p>Navila Computer hadir memberikan solusi kebutuhan Internet Anda dengan kecepatan tinggi, harga terjangkau, dan jaminan true Unlimited.</p>
       <div class="tombol">
         <a href="pages/coverage.php" class="tbl tbl-berlangganan">BERLANGGANAN</a>
-        <a href="#contact" class="tbl tbl-hubungi">HUBUNGI KAMI</a>
+        <a href="https://wa.me/6282232191294" class="tbl tbl-hubungi">HUBUNGI KAMI</a>
       </div>
     </div>
   </section>
@@ -80,7 +80,7 @@
         <li>Simetris Upstream & Downstream</li>
         <li>Bandwidth 20 Mbps</li>
       </ul>
-      <a href="#" class="btn-price">BERLANGGANAN</a>
+      <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
     </div>
 
     <div class="homeprice-box featured">
@@ -95,7 +95,7 @@
         <li>Simetris Upstream & Downstream</li>
         <li>Bandwidth 30 Mbps</li>
       </ul>
-      <a href="#" class="btn-price">BERLANGGANAN</a>
+      <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
     </div>
 
     <div class="homeprice-box">
@@ -110,7 +110,7 @@
         <li>Simetris Upstream & Downstream</li>
         <li>Bandwidth 40 Mbps</li>
       </ul>
-      <a href="#" class="btn-price">BERLANGGANAN</a>
+      <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
     </div>
   </div>
 </section>
@@ -124,7 +124,7 @@
     <p>
       Konsultasikan dengan tim kami, dengan senang hati kami akan membantu Anda.
     </p>
-    <a href="#" class="btn-cta">KLIK DISINI</a>
+    <a href="https://wa.me/6282232191294" class="btn-cta">KLIK DISINI</a>
   </div>
 </section>
 

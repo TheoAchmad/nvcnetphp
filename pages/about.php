@@ -97,7 +97,7 @@
         <p>
           Merupakan koneksi internet dengan menggunakan media akses berteknologi nirkabel dan Fiber Optic yang dapat diakses selama 24 jam. Unlimited dan tanpa batasan quota. Dengan jaringan internet ini pelanggan akan menerima bandwidth Up to 1-50Mbps.
         </p>
-        <a href="#" class="btn">BERLANGGANAN</a>
+        <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
 
       <div class="col card">
@@ -106,7 +106,7 @@
         <p>
           Dedicated Connection adalah koneksi yang dirancang untuk selalu terhubung ke Internet. Internet Dedicated Connection memungkinkan pelanggan Corporate memiliki koneksi internet yang cepat dan andal selama 24 jam. Kami meningkatkan konektivitas menggunakan protokol berbasis IP atau TDM.
         </p>
-        <a href="#" class="btn">BERLANGGANAN</a>
+        <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
 
       <div class="col card">
@@ -115,7 +115,7 @@
         <p>
           Produk unggulan ini digunakan untuk anda yang ingin memiliki dedicated IP untuk perangkat elektronik / komputer anda. Dengan dedicated IPv4, perangkat anda dapat diakses secara publik/internet. Cocok untuk server, aplikasi bisnis, VPN, Database Online, dan layanan enterprise.
         </p>
-        <a href="#" class="btn">BERLANGGANAN</a>
+        <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
     </div>
   </div>
