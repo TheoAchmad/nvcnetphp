@@ -66,76 +66,85 @@ while ($row = $paketQuery->fetch_assoc()) {
     <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
   </nav>
 
+  <!-- Contact Section -->
   <section class="contact">
-  <div class="contact-container">
+    <div class="contact-container">
 
-    <!-- Left Info -->
-    <div class="contact-info">
-      <h3>Office Location</h3>
-      <div class="info-box">
-        <i class="fa-solid fa-location-dot"></i>
-        <p>R8WQ+98V, Gombeng, Gombengsari, Kalipuro,<br>
-           Banyuwangi Regency,<br>
-           East Java 68455</p>
-      </div>
-
-      <h3>Office Hours</h3>
-      <div class="info-box">
-        <i class="fa-solid fa-clock"></i>
-        <p>10.00am – 08.00pm<br>08.00pm – 10.00am</p>
-      </div>
-
-      <h3>Phone</h3>
-      <div class="info-box">
-        <i class="fa-solid fa-phone"></i>
-        <p>+62 822 3219 1294<br>+62 822 3219 1294</p>
-      </div>
-
-      <h3>Email</h3>
-      <div class="info-box">
-        <i class="fa-solid fa-envelope"></i>
-        <p>theosmk20@gmail.com<br>nvc@gmail.com</p>
-      </div>
-    </div>
-
-    <!-- Right Form -->
-    <div class="contact-form">
-      <h2>Request a Contact us</h2>
-      <p>
-        Next we will assist you in fulfilling the internet connection you need.
-        We also provide internet connections for local links, vpn, public ip,
-        web design, banking and coporation.
-      </p>
-      <div class="line"></div>
-
-      <form action="/ProjekNVCNET/pages/admin/admin-page/proses-pelanggan.php" method="POST">
-        <input type="text" name="nama" placeholder="Nama" required>
-        <div class="form-row">
-          <input type="email" placeholder="Email" name="email"><br><br>
-          <input type="text" placeholder="No Hp" name="telepon"><br><br>
-          <input type="hidden" name="source" value="contact">
-
+      <!-- Left Info -->
+      <div class="contact-info">
+        <h3>Office Location</h3>
+        <div class="info-box">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>R8WQ+98V, Gombeng, Gombengsari,<br>Kalipuro, Banyuwangi Regency,<br>East Java 68455</p>
         </div>
-        <input type="text" placeholder="Alamat" name="alamat">
-        <legend>Pilih Paket WiFi</legend>
-      <label>Paket:</label>
-      <select name="id_paket" id="id_paket" onchange="updateHarga()" required>
-  <option value="">-- Pilih Paket --</option>
-  <?php foreach ($paketList as $paket): ?>
-    <option value="<?= $paket['id_paket'] ?>" data-harga="<?= $paket['harga'] ?>">
-      <?= htmlspecialchars($paket['nama_paket']) ?> - Rp<?= number_format($paket['harga'], 0, ',', '.') ?>
-    </option>
-  <?php endforeach; ?>
-</select>
-        <button type="submit" value="Simpan" class="btn-submit">
-          SEND MESSAGE <i class="fa-solid fa-paper-plane"></i>
-        </button>
-      </form>
+
+        <h3>Office Hours</h3>
+        <div class="info-box">
+          <i class="fa-solid fa-clock"></i>
+          <p>10.00am – 08.00pm<br>08.00pm – 10.00am</p>
+        </div>
+
+        <h3>Phone</h3>
+        <div class="info-box">
+          <i class="fa-solid fa-phone"></i>
+          <p>+62 822 3219 1294</p>
+        </div>
+
+        <h3>Email</h3>
+        <div class="info-box">
+          <i class="fa-solid fa-envelope"></i>
+          <p>theosmk20@gmail.com<br>nvc@gmail.com</p>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="contact-form">
+        <h2>Request a Contact Us</h2>
+        <p>
+          Next we will assist you in fulfilling the internet connection you need.
+          We also provide internet connections for local links, VPN, public IP,
+          web design, banking and corporation.
+        </p>
+        <div class="line"></div>
+
+        <form action="/ProjekNVCNET/pages/admin/admin-page/proses-pelanggan.php" method="POST">
+          <input type="text" name="nama" placeholder="Nama Lengkap" required>
+          
+          <div class="form-row">
+            <input type="email" placeholder="Email Address" name="email" required>
+            <input type="text" placeholder="No Hp / WhatsApp" name="telepon" required>
+          </div>
+          
+          <input type="hidden" name="source" value="contact">
+          <input type="text" placeholder="Alamat Lengkap Pemasangan" name="alamat" required>
+          
+          <div class="legend-text">Pilih Paket Layanan:</div>
+          <div class="form-row">
+            <!-- Pilihan Paket -->
+            <select name="id_paket" id="id_paket" onchange="updateHarga()" required>
+              <option value="">-- Pilih Paket WiFi --</option>
+              <?php foreach ($paketList as $paket): ?>
+                <option value="<?= $paket['id_paket'] ?>" data-harga="<?= $paket['harga'] ?>">
+                  <?= htmlspecialchars($paket['nama_paket']) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+
+            <!-- Menampilkan Harga Otomatis dari JS (Readonly agar tidak diedit manual) -->
+            <input type="text" id="harga" name="harga_tampil" placeholder="Harga Otomatis" readonly style="background: rgba(0,0,0,0.2); cursor: not-allowed;">
+          </div>
+          
+          <button type="submit" class="btn-submit">
+            SEND MESSAGE <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <?php include "../assets/component/footer.php" ?>
 
-  <script src="../js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 </html>

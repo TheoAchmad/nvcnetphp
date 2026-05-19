@@ -48,21 +48,24 @@
     <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
   </nav>
 
-  <section class="slider-container">
-  <div class="slider">
-    <div class="slide"><img src="../assets/gambar/Gemini_Generated_Image_ea8gukea8gukea8g.png" alt="Foto 1"></div>
-    <div class="slide"><img src="foto2.jpg" alt="Foto 2"></div>
-    <div class="slide"><img src="foto3.jpg" alt="Foto 3"></div>
-    <div class="slide"><img src="foto4.jpg" alt="Foto 4"></div>
-    <div class="slide"><img src="foto5.jpg" alt="Foto 5"></div>
-  </div>
-  <!-- Tombol navigasi -->
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</section>
+  <!-- Slider Section -->
+  <section class="slider-section">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide"><img src="../assets/gambar/Gemini_Generated_Image_ea8gukea8gukea8g.png" alt="Foto 1"></div>
+        <div class="slide"><img src="foto2.jpg" alt="Foto 2"></div>
+        <div class="slide"><img src="foto3.jpg" alt="Foto 3"></div>
+        <div class="slide"><img src="foto4.jpg" alt="Foto 4"></div>
+        <div class="slide"><img src="foto5.jpg" alt="Foto 5"></div>
+      </div>
+      <!-- Tombol navigasi -->
+      <button class="slider-btn prev" id="prevBtn">&#10094;</button>
+      <button class="slider-btn next" id="nextBtn">&#10095;</button>
+    </div>
+  </section>
 
-<section class="network-section">
-  <div class="wadah-network">
+  <!-- Content Section -->
+  <section class="network-section">
     <!-- Judul -->
     <h2>NAVILA COMPUTER NETWORK</h2>
     <p class="intro">
@@ -70,17 +73,19 @@
     </p>
 
     <!-- Baris 1: Manage Service + Kemitraan -->
-    <div class="row">
-      <div class="col">
+    <div class="row row-top">
+      <div class="card">
         <img src="manage-service.jpg" alt="Manage Service">
         <h3>Manage Service</h3>
         <p>
           Kebutuhan Teknologi Informasi yang semakin hari semakin kompleks dapat tertolong dengan solusi Manage Service yang kami tawarkan. Kami menyediakan berbagai macam solusi yang memudahkan pengelolaan kebutuhan IT anda secara efisien serta dapat meningkatkan performa bisnis anda dari sisi Teknologi.
         </p>
-        <p><strong>Layanan:</strong> Manage Access Point / WiFi, Manage CCTV, Manage Network, Manage Mailserver.</p>
+        <p style="color:#38bdf8; font-size:0.9rem; margin-top:10px;">
+          <strong>Layanan:</strong> Manage Access Point / WiFi, Manage CCTV, Manage Network, Manage Mailserver.
+        </p>
       </div>
 
-      <div class="col">
+      <div class="card">
         <img src="rt-rw-net.jpg" alt="Kemitraan RT/RW net">
         <h3>Kemitraan RT-RW net</h3>
         <p>
@@ -91,7 +96,7 @@
 
     <!-- Baris 2: Paket -->
     <div class="row packages">
-      <div class="col card">
+      <div class="card">
         <img src="paket-broadband.jpg" alt="Paket Broadband">
         <h3>Paket Broadband</h3>
         <p>
@@ -100,7 +105,7 @@
         <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
 
-      <div class="col card">
+      <div class="card">
         <img src="paket-dedicated.jpg" alt="Paket Internet Dedicated">
         <h3>Paket Internet Dedicated</h3>
         <p>
@@ -109,7 +114,7 @@
         <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
 
-      <div class="col card">
+      <div class="card">
         <img src="paket-ip.jpg" alt="Paket Dedicated IP Public">
         <h3>Paket Dedicated IP Public</h3>
         <p>
@@ -118,20 +123,10 @@
         <a href="contact.php" class="btn">BERLANGGANAN</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="footer-left">
-    <p>© 2019 PT.NAVILA COMPUTER. All Rights Reserved.</p>
-  </div>
-  <div class="footer-right">
-    <a href="#">Term of User</a>
-    <a href="#">Licence</a>
-    <a href="#">Support</a>
-  </div>
-</footer>
+<?php include "../assets/component/footer.php" ?>
 
   <script src="../assets/js/script.js"></script>
 </body>

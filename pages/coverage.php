@@ -49,60 +49,46 @@
   </nav>
 
   <section class="coverage">
-  <div class="coverage-container">
-    <h2>NAVILA COMPUTER NETWORK</h2>
-    <p>
-      PT.NAVILA COMPUTER adalah perusahaan Penyedia Layanan Internet (ISP) yang menyediakan layanan Internet 24 jam 
-      yang mencakup Layanan Bandwidth, Layanan Konektivitas, Colocations Server, Layanan Terkelola, dan semua solusi terkait IT 
-      serta layanan jaringan. Dalam 12 tahun pelayanannya, saat ini PT. NVC NET telah berkembang dan tersebar di seluruh Indonesia. 
-      Sebagai standar industri, NVC memiliki Layanan Bergaransi 98,8% uptime untuk layanan internet.
-    </p>
+    <div class="coverage-container">
+      <h2>NAVILA COMPUTER NETWORK</h2>
+      <p class="desc">
+        PT.NAVILA COMPUTER adalah perusahaan Penyedia Layanan Internet (ISP) yang menyediakan layanan Internet 24 jam 
+        yang mencakup Layanan Bandwidth, Layanan Konektivitas, Colocations Server, Layanan Terkelola, dan semua solusi terkait IT 
+        serta layanan jaringan. Dalam 12 tahun pelayanannya, saat ini PT. NVC NET telah berkembang dan tersebar di seluruh Indonesia. 
+        Sebagai standar industri, NVC memiliki Layanan Bergaransi 98,8% uptime untuk layanan internet.
+      </p>
 
-    <div class="coverage-grid">
-
-      <!-- Banyuwangi -->
-      <div class="coverage-box">
-        <h3>Banyuwangi</h3>
-        <ul>
-          <li>Kalipuro</li>
-          <li>Giri</li>
-          <li>Gombengsari</li>
-          <li>Suko</li>
-          <li>Kacangan</li>
-          <li>Lerek</li>
-          <li>Kelir</li>
-          <li>Telemung</li>
-          <li>Bulusari</li>
-          <li>Kenjo</li>
-          <li>Paspan</li>
-          <li>Tamansuruh</li>
-          <li>Kampung Anyar</li>
-          <li>Gumuk</li>
-          <li>Pendarungan</li>
-          <li>Dan Area Sekitarnya...</li>
-        </ul>
-        <!-- <button class="btn-coverage">BERLANGGANAN</button> -->
-        <a href="contact.php" class="btn-coverage">BERLANGGANAN</a>
+      <div class="coverage-grid">
+        <!-- Banyuwangi Box -->
+        <div class="coverage-box">
+          <h3>Coverage Area Banyuwangi</h3>
+          <ul>
+            <li>Kalipuro</li>
+            <li>Giri</li>
+            <li>Gombengsari</li>
+            <li>Suko</li>
+            <li>Kacangan</li>
+            <li>Lerek</li>
+            <li>Kelir</li>
+            <li>Telemung</li>
+            <li>Bulusari</li>
+            <li>Kenjo</li>
+            <li>Paspan</li>
+            <li>Tamansuruh</li>
+            <li>Kampung Anyar</li>
+            <li>Gumuk</li>
+            <li>Pendarungan</li>
+            <li>Dan Area Sekitarnya...</li>
+          </ul>
+          <a href="../pages/contact.php" class="btn-coverage">BERLANGGANAN</a>
+        </div>
       </div>
-
     </div>
-  </div>
-</section>
-
-<div class="kosong"></div>
+  </section>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="footer-left">
-    <p>© 2019 PT.NAVILA COMPUTER. All Rights Reserved.</p>
-  </div>
-  <div class="footer-right">
-    <a href="#">Term of User</a>
-    <a href="#">Licence</a>
-    <a href="#">Support</a>
-  </div>
-</footer>
+<?php include "../assets/component/footer.php" ?>
 
-  <script src="../js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 </html>
