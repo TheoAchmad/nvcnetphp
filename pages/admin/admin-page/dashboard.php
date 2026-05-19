@@ -166,7 +166,7 @@ $result = $conn->query($sql);
                 'confirmed' => 'confirmed',
                 'nonaktif' => 'nonaktif',
                 default => ''
-              };
+              }; 
             ?>
             <tr>
               <td>#<?= $row['id_pelanggan'] ?></td>

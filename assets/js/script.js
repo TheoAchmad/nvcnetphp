@@ -45,21 +45,20 @@ const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 
 let index = 0;
-let interval = setInterval(autoSlide, 3000); // auto geser tiap 3 detik
+let interval = setInterval(autoSlide, 3000);
 
 function showSlide(i) {
   if (i < 0) index = slides.length - 1;
   else if (i >= slides.length) index = 0;
   else index = i;
 
-  slider.style.transform = `translateX(${-index * 100}%)`;
+  slider.style.transform = `t ranslateX(${-index * 100}%)`;
 }
 
 function autoSlide() {
   showSlide(index + 1);
 }
 
-// tombol manual
 nextBtn.addEventListener('click', () => {
   showSlide(index + 1);
   resetInterval();

@@ -165,17 +165,24 @@ a {
 
 /* About Section */
 .navila {
-  padding: 4rem 10vw;
-  text-align: center;
-}
-.navila h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.nvc {
-  max-width: 800px;
-  margin: 0 auto;
-}
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .navila h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      color: #f8fafc;
+    }
+
+    .navila p.nvc {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
 
 /* Service */
 /* Services Section */
