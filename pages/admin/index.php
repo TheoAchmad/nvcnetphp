@@ -77,6 +77,13 @@ $page = $_GET['page'] ?? 'dashboard';
               <span class="pc-mtext">Pelanggan</span>
             </a>
           </li>
+
+          <li class="pc-item <?php echo ($page == 'coverage') ? 'active' : ''; ?>">
+            <a href="index.php?page=coverage" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-map-pin"></i></span>
+              <span class="pc-mtext">Coverage Area</span>
+            </a>
+          </li>
           
           <!-- <li class="pc-item <?php echo ($page == 'pembayaran') ? 'active' : ''; ?>">
             <a href="index.php?page=pembayaran" class="pc-link">
@@ -185,6 +192,9 @@ $page = $_GET['page'] ?? 'dashboard';
               break;
           case 'pembelian':
               $fileToInclude = './admin-page/pembelian.php';
+              break;
+          case 'coverage':
+              $fileToInclude = './admin-page/coverage.php';
               break;
           // case 'pembayaran':
           //     // Anda perlu membuat file ini

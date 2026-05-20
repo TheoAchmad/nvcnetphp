@@ -91,58 +91,44 @@
     </div>
   </section>
 
-  <!-- Pricing Section -->
+  <!-- Pricing Section (dinamis dari database) -->
   <section class="homeprice">
     <div class="container">
       <h2 class="section-title">NVC HOME PRICE</h2>
       <div class="homeprice-container">
-        <!-- Box 1 -->
-        <div class="homeprice-box">
-          <h3>Internet Broadband only</h3>
-          <h4>Rp 100.000</h4>
+        <?php
+        // Ambil paket dari database
+        require_once "assets/config/koneksi.php";
+        $sql_paket = "SELECT * FROM paket_wifi ORDER BY harga ASC";
+        $res_paket = $conn->query($sql_paket);
+        if ($res_paket && $res_paket->num_rows > 0):
+          while ($pk = $res_paket->fetch_assoc()):
+            $is_feat = !empty($pk['is_featured']);
+            $fitur_list = [];
+            if (!empty($pk['deskripsi'])) {
+              $fitur_list = array_map('trim', explode(',', $pk['deskripsi']));
+            }
+            if (empty($fitur_list)) {
+              // fitur default jika belum diisi
+              $fitur_list = ['Unlimited Per Bulan','Speed Browsing','24 Jam Nonstop','Simetris Upstream & Downstream'];
+              if (!empty($pk['bandwidth'])) $fitur_list[] = 'Bandwidth ' . $pk['bandwidth'];
+            }
+        ?>
+        <div class="homeprice-box <?= $is_feat ? 'featured' : '' ?>">
+          <h3><?= htmlspecialchars($pk['nama_paket']) ?></h3>
+          <h4>Rp <?= number_format($pk['harga'], 0, ',', '.') ?></h4>
           <p>Per Bulan</p>
           <hr>
           <ul>
-            <li>Unlimited Per Bulan</li>
-            <li>Speed Browsing</li>
-            <li>24 Jam Nonstop</li>
-            <li>Simetris Upstream & Downstream</li>
-            <li>Bandwidth 20 Mbps</li>
+            <?php foreach ($fitur_list as $f): ?>
+              <li><?= htmlspecialchars($f) ?></li>
+            <?php endforeach; ?>
           </ul>
           <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
         </div>
-
-        <!-- Box 2 Featured -->
-        <div class="homeprice-box featured">
-          <h3>Internet Broadband Fast</h3>
-          <h4>Rp 150.000</h4>
-          <p>Per Bulan</p>
-          <hr>
-          <ul>
-            <li>Unlimited Per Bulan</li>
-            <li>Speed Browsing</li>
-            <li>24 Jam Nonstop</li>
-            <li>Simetris Upstream & Downstream</li>
-            <li>Bandwidth 30 Mbps</li>
-          </ul>
-          <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
-        </div>
-
-        <!-- Box 3 -->
-        <div class="homeprice-box">
-          <h3>Internet Broadband High</h3>
-          <h4>Rp 200.000</h4>
-          <p>Per Bulan</p>
-          <hr>
-          <ul>
-            <li>Unlimited Per Bulan</li>
-            <li>Speed Browsing</li>
-            <li>24 Jam Nonstop</li>
-            <li>Simetris Upstream & Downstream</li>
-            <li>Bandwidth 40 Mbps</li>
-          </ul>
-          <a href="pages/contact.php" class="btn-price">BERLANGGANAN</a>
-        </div>
+        <?php endwhile; else: ?>
+        <p style="text-align:center; color:#aaa;">Paket belum tersedia.</p>
+        <?php endif; ?>
       </div>
     </div>
   </section>

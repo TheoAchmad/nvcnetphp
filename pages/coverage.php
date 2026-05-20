@@ -59,29 +59,37 @@
       </p>
 
       <div class="coverage-grid">
-        <!-- Banyuwangi Box -->
+        <?php
+        require_once "../assets/config/koneksi.php";
+        $cov_check = $conn->query("SHOW TABLES LIKE 'coverage_area'");
+        if ($cov_check && $cov_check->num_rows > 0) {
+            $cov_res = $conn->query("SELECT * FROM coverage_area ORDER BY urutan ASC, id_coverage ASC");
+        } else { $cov_res = false; }
+
+        if ($cov_res && $cov_res->num_rows > 0):
+          while ($cov = $cov_res->fetch_assoc()):
+            $areas = array_map('trim', explode(',', $cov['daftar_area']));
+        ?>
+        <div class="coverage-box">
+          <h3>Coverage Area <?= htmlspecialchars($cov['nama_kota']) ?></h3>
+          <ul>
+            <?php foreach ($areas as $a): ?><li><?= htmlspecialchars($a) ?></li><?php endforeach; ?>
+          </ul>
+          <a href="../pages/contact.php" class="btn-coverage">BERLANGGANAN</a>
+        </div>
+        <?php endwhile; else: ?>
         <div class="coverage-box">
           <h3>Coverage Area Banyuwangi</h3>
           <ul>
-            <li>Kalipuro</li>
-            <li>Giri</li>
-            <li>Gombengsari</li>
-            <li>Suko</li>
-            <li>Kacangan</li>
-            <li>Lerek</li>
-            <li>Kelir</li>
-            <li>Telemung</li>
-            <li>Bulusari</li>
-            <li>Kenjo</li>
-            <li>Paspan</li>
-            <li>Tamansuruh</li>
-            <li>Kampung Anyar</li>
-            <li>Gumuk</li>
-            <li>Pendarungan</li>
+            <li>Kalipuro</li><li>Giri</li><li>Gombengsari</li><li>Suko</li>
+            <li>Kacangan</li><li>Lerek</li><li>Kelir</li><li>Telemung</li>
+            <li>Bulusari</li><li>Kenjo</li><li>Paspan</li><li>Tamansuruh</li>
+            <li>Kampung Anyar</li><li>Gumuk</li><li>Pendarungan</li>
             <li>Dan Area Sekitarnya...</li>
           </ul>
           <a href="../pages/contact.php" class="btn-coverage">BERLANGGANAN</a>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
