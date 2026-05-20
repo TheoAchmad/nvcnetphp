@@ -1,208 +1,120 @@
 <?php
 include_once __DIR__ . '/../../../assets/config/koneksi.php';
 
-$sql = "
-  SELECT 
-    p.id_pelanggan, p.nama, p.alamat, p.email, p.no_hp,
-    pw.nama_paket, p.status
+// Stats
+$totalPelanggan  = $conn->query("SELECT COUNT(*) AS c FROM pelanggan")->fetch_assoc()['c'] ?? 0;
+$totalBooking    = $conn->query("SELECT COUNT(*) AS c FROM pelanggan WHERE status='booking'")->fetch_assoc()['c'] ?? 0;
+$totalConfirmed  = $conn->query("SELECT COUNT(*) AS c FROM pelanggan WHERE status='confirmed'")->fetch_assoc()['c'] ?? 0;
+$totalPembelian  = $conn->query("SELECT COUNT(*) AS c FROM pembelian")->fetch_assoc()['c'] ?? 0;
+
+// Recent pelanggan
+$result = $conn->query("
+  SELECT p.id_pelanggan, p.nama, p.email, p.no_hp, pw.nama_paket, p.status
   FROM pelanggan p
   LEFT JOIN paket_wifi pw ON p.id_paket = pw.id_paket
   ORDER BY p.id_pelanggan DESC
-";
-$result = $conn->query($sql);
+  LIMIT 8
+");
 ?>
+<link rel="stylesheet" href="./assets/css/nvc-admin.css">
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard Pelanggan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #3498db;
-      --success: #27ae60;
-      --warning: #e67e22;
-      --danger: #e74c3c;
-      --gray: #7f8c8d;
-      --bg: #eef2f7;
-    }
+<div class="nvc-admin-wrap">
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
-      margin: 0;
-      padding: 20px;
-      color: #2c3e50;
-    }
+  <!-- Stat Cards -->
+  <div class="nvc-stats-grid">
+    <div class="nvc-stat-card">
+      <div class="nvc-stat-icon blue"><i class="ti ti-users"></i></div>
+      <div>
+        <div class="nvc-stat-label">Total Pelanggan</div>
+        <div class="nvc-stat-value"><?= $totalPelanggan ?></div>
+      </div>
+    </div>
+    <div class="nvc-stat-card">
+      <div class="nvc-stat-icon orange"><i class="ti ti-clock"></i></div>
+      <div>
+        <div class="nvc-stat-label">Menunggu Konfirmasi</div>
+        <div class="nvc-stat-value"><?= $totalBooking ?></div>
+      </div>
+    </div>
+    <div class="nvc-stat-card">
+      <div class="nvc-stat-icon green"><i class="ti ti-circle-check"></i></div>
+      <div>
+        <div class="nvc-stat-label">Pelanggan Aktif</div>
+        <div class="nvc-stat-value"><?= $totalConfirmed ?></div>
+      </div>
+    </div>
+    <div class="nvc-stat-card">
+      <div class="nvc-stat-icon red"><i class="ti ti-receipt-2"></i></div>
+      <div>
+        <div class="nvc-stat-label">Total Transaksi</div>
+        <div class="nvc-stat-value"><?= $totalPembelian ?></div>
+      </div>
+    </div>
+  </div>
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    h2 {
-      margin-bottom: 25px;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .btn-add {
-      background: var(--primary);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      float: right;
-      margin-top: -50px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #eee;
-      text-align: left;
-    }
-
-    th {
-      background: #f8f9fa;
-      font-size: 13px;
-      text-transform: uppercase;
-      color: var(--gray);
-    }
-
-    .badge {
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: capitalize;
-    }
-
-    .booking { background: rgba(230, 126, 34, 0.15); color: var(--warning); }
-    .confirmed { background: rgba(39, 174, 96, 0.15); color: var(--success); }
-    .nonaktif { background: rgba(127, 140, 141, 0.15); color: var(--gray); }
-
-    .action-group {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn {
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-edit {
-      background: rgba(52, 152, 219, 0.1);
-      color: var(--primary);
-    }
-
-    .btn-confirm {
-      background: rgba(39, 174, 96, 0.1);
-      color: var(--success);
-    }
-
-    .btn-batal {
-      background: rgba(231, 76, 60, 0.1);
-      color: var(--danger);
-    }
-
-    .btn-disabled {
-      background: #f0f0f0;
-      color: #aaa;
-      cursor: not-allowed;
-    }
-
-    .no-data {
-      text-align: center;
-      padding: 40px;
-      color: var(--gray);
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h2>Data Pelanggan</h2>
-    <a href="admin-page/form-pelanggan.php" class="btn-add">+ Tambah</a>
-
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nama</th>
-          <th>Alamat</th>
-          <th>Email</th>
-          <th>No HP</th>
-          <th>Paket</th>
-          <th>Status</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php if ($result->num_rows > 0): ?>
-          <?php while ($row = $result->fetch_assoc()): ?>
-            <?php
-              $status = $row['status'];
-              $badgeClass = match ($status) {
-                'booking' => 'booking',
-                'confirmed' => 'confirmed',
-                'nonaktif' => 'nonaktif',
-                default => ''
-              }; 
+  <!-- Recent Pelanggan -->
+  <div class="nvc-card">
+    <div class="nvc-card-header">
+      <h4 class="nvc-card-title"><i class="ti ti-users"></i> Pelanggan Terbaru</h4>
+      <a href="index.php?page=pelanggan" class="btn-nvc btn-nvc-primary btn-nvc-sm">
+        <i class="ti ti-arrow-right"></i> Lihat Semua
+      </a>
+    </div>
+    <div class="nvc-table-wrap">
+      <table class="nvc-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>No HP</th>
+            <th>Paket</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php if ($result && $result->num_rows > 0): ?>
+            <?php while ($row = $result->fetch_assoc()):
+              $st = $row['status'];
+              $badge = match($st) {
+                'booking'   => 'nvc-badge-orange',
+                'confirmed' => 'nvc-badge-green',
+                'nonaktif'  => 'nvc-badge-gray',
+                default     => 'nvc-badge-gray'
+              };
             ?>
             <tr>
-              <td>#<?= $row['id_pelanggan'] ?></td>
-              <td><?= htmlspecialchars($row['nama']) ?></td>
-              <td><?= htmlspecialchars($row['alamat']) ?></td>
-              <td><?= htmlspecialchars($row['email']) ?></td>
+              <td><strong style="color:#3b82f6">#<?= $row['id_pelanggan'] ?></strong></td>
+              <td style="font-weight:600"><?= htmlspecialchars($row['nama']) ?></td>
+              <td style="color:#64748b;font-size:13px"><?= htmlspecialchars($row['email']) ?></td>
               <td><?= htmlspecialchars($row['no_hp']) ?></td>
-              <td><?= $row['nama_paket'] ?? '<span style="color:#ccc">-</span>' ?></td>
-              <td><span class="badge <?= $badgeClass ?>"><?= $status ?></span></td>
+              <td><?= $row['nama_paket'] ? htmlspecialchars($row['nama_paket']) : '<span style="color:#cbd5e1">-</span>' ?></td>
+              <td><span class="nvc-badge <?= $badge ?>"><?= ucfirst($st) ?></span></td>
               <td>
-                <div class="action-group">
-                  <a href="form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>" class="btn btn-edit">Edit</a>
-
-                  <?php if ($status === 'booking'): ?>
-                    <form method="POST" action="admin-page/konfirmasi-pelanggan.php">
+                <div class="nvc-actions">
+                  <a href="admin-page/form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>" class="btn-nvc btn-nvc-sm btn-nvc-edit">Edit</a>
+                  <?php if ($st === 'booking'): ?>
+                    <form method="POST" action="admin-page/konfirmasi-pelanggan.php" style="margin:0">
                       <input type="hidden" name="id_pelanggan" value="<?= $row['id_pelanggan'] ?>">
-                      <button type="submit" class="btn btn-confirm">✅</button>
+                      <button type="submit" class="btn-nvc btn-nvc-sm btn-nvc-confirm">✅ Konfirmasi</button>
                     </form>
-                  <?php elseif ($status === 'confirmed'): ?>
-                    <form method="POST" action="admin-page/batal-konfirmasi.php">
+                  <?php elseif ($st === 'confirmed'): ?>
+                    <form method="POST" action="admin-page/batal-konfirmasi.php" style="margin:0" onsubmit="return confirm('Batalkan konfirmasi?')">
                       <input type="hidden" name="id_pelanggan" value="<?= $row['id_pelanggan'] ?>">
-                      <button type="submit" class="btn btn-batal">❌</button>
+                      <button type="submit" class="btn-nvc btn-nvc-sm btn-nvc-del">❌ Batal</button>
                     </form>
-                  <?php else: ?>
-                    <button class="btn btn-disabled" disabled>🚫</button>
                   <?php endif; ?>
                 </div>
               </td>
             </tr>
-          <?php endwhile; ?>
-        <?php else: ?>
-          <tr><td colspan="8" class="no-data">Tidak ada data pelanggan ditemukan.</td></tr>
-        <?php endif; ?>
-      </tbody>
-    </table>
+            <?php endwhile; ?>
+          <?php else: ?>
+            <tr class="no-data"><td colspan="7">Belum ada data pelanggan.</td></tr>
+          <?php endif; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-</body>
-</html>
+</div>

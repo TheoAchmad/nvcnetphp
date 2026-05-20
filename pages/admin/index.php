@@ -26,6 +26,7 @@ $page = $_GET['page'] ?? 'dashboard';
   <link rel="stylesheet" href="./assets/fonts/material.css">
   <link rel="stylesheet" href="./assets/css/style.css" id="main-style-link">
   <link rel="stylesheet" href="./assets/css/style-preset.css">
+  <link rel="stylesheet" href="./assets/css/nvc-admin.css">
 
 </head>
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
