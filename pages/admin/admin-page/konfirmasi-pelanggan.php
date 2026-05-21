@@ -18,6 +18,7 @@ SELECT id_pelanggan, id_paket, NOW() FROM pelanggan WHERE id_pelanggan = ?");
 $stmt2->bind_param("i", $id_pelanggan);
 $stmt2->execute();
 
-header("Location: /projeknvcnet/pages/admin/index.php");
+// ⚠️ PERBAIKAN: Diarahkan kembali ke halaman utama dashboard admin
+header("Location: ../index.php?page=pelanggan");
 exit;
 ?>
