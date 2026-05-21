@@ -107,7 +107,7 @@ while ($row = $paketQuery->fetch_assoc()) {
         </p>
         <div class="line"></div>
 
-        <form action="/ProjekNVCNET/pages/admin/admin-page/proses-pelanggan.php" method="POST">
+        <form action="../admin/admin-page/proses-pelanggan.php" method="POST">
           <input type="text" name="nama" placeholder="Nama Lengkap" required>
           
           <div class="form-row">
