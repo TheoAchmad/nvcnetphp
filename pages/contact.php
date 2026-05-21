@@ -10,30 +10,20 @@ while ($row = $paketQuery->fetch_assoc()) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NVC Network by Provitel - Penyedia layanan internet cepat, stabil, dan terjangkau di Banyuwangi.">
-  <title>NVC Network by Provitel</title>
-
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <?php include "../assets/component/head.php" ?>
+  
   <script>
     function updateHarga() {
-  const select = document.getElementById("id_paket");
-  const hargaInput = document.getElementById("harga");
-  const selectedOption = select.options[select.selectedIndex];
-  const harga = selectedOption.getAttribute("data-harga");
-  hargaInput.value = harga || "";
-}
+      const select = document.getElementById("id_paket");
+      const hargaInput = document.getElementById("harga");
+      const selectedOption = select.options[select.selectedIndex];
+      const harga = selectedOption.getAttribute("data-harga");
+      hargaInput.value = harga || "";
+    }
   </script>
 </head>
 <body>
 
-  <!-- Top Info Bar -->
   <div class="about">
     <div class="wadah">
       <div class="kontak-info">
@@ -52,7 +42,6 @@ while ($row = $paketQuery->fetch_assoc()) {
     </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <a href="#" class="logo-nav"><img src="../assets/gambar/nvc.png" alt="Logo NVC Network"></a>
 
@@ -66,11 +55,9 @@ while ($row = $paketQuery->fetch_assoc()) {
     <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
   </nav>
 
-  <!-- Contact Section -->
   <section class="contact">
     <div class="contact-container">
 
-      <!-- Left Info -->
       <div class="contact-info">
         <h3>Office Location</h3>
         <div class="info-box">
@@ -97,7 +84,6 @@ while ($row = $paketQuery->fetch_assoc()) {
         </div>
       </div>
 
-      <!-- Right Form -->
       <div class="contact-form">
         <h2>Request a Contact Us</h2>
         <p>
@@ -120,7 +106,6 @@ while ($row = $paketQuery->fetch_assoc()) {
           
           <div class="legend-text">Pilih Paket Layanan:</div>
           <div class="form-row">
-            <!-- Pilihan Paket -->
             <select name="id_paket" id="id_paket" onchange="updateHarga()" required>
               <option value="">-- Pilih Paket WiFi --</option>
               <?php foreach ($paketList as $paket): ?>
@@ -130,7 +115,6 @@ while ($row = $paketQuery->fetch_assoc()) {
               <?php endforeach; ?>
             </select>
 
-            <!-- Menampilkan Harga Otomatis dari JS (Readonly agar tidak diedit manual) -->
             <input type="text" id="harga" name="harga_tampil" placeholder="Harga Otomatis" readonly style="background: rgba(0,0,0,0.2); cursor: not-allowed;">
           </div>
           

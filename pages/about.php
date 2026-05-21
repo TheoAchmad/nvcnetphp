@@ -1,21 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NVC Network by Provitel - Penyedia layanan internet cepat, stabil, dan terjangkau di Banyuwangi.">
-  <title>NVC Network by Provitel</title>
-
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <?php include "../assets/component/head.php" ?>
 </head>
 <body>
 
-  <!-- Top Info Bar -->
   <div class="about">
     <div class="wadah">
       <div class="kontak-info">
@@ -34,7 +23,6 @@
     </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <a href="#" class="logo-nav"><img src="../assets/gambar/nvc.png" alt="Logo NVC Network"></a>
 
@@ -48,7 +36,6 @@
     <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
   </nav>
 
-  <!-- Slider Section -->
   <section class="slider-section">
     <div class="slider-container">
       <div class="slider" id="slider">
@@ -58,21 +45,17 @@
         <div class="slide"><img src="foto4.jpg" alt="Foto 4"></div>
         <div class="slide"><img src="foto5.jpg" alt="Foto 5"></div>
       </div>
-      <!-- Tombol navigasi -->
       <button class="slider-btn prev" id="prevBtn">&#10094;</button>
       <button class="slider-btn next" id="nextBtn">&#10095;</button>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="network-section">
-    <!-- Judul -->
     <h2>NAVILA COMPUTER NETWORK</h2>
     <p class="intro">
       PT.NAVILA COMPUTER NETWORK adalah perusahaan Penyedia Layanan Internet (ISP) yang menyediakan layanan Internet 24 jam yang mencakup Layanan Bandwidth, Layanan Konektivitas, Colocations Server, Layanan Terkelola, dan semua solusi terkait IT serta layanan jaringan. Dalam 12 tahun pelayanannya, saat ini PT. NVC NET telah berkembang dan tersebar di seluruh Indonesia. Sebagai standar industri, NVC memiliki Layanan Bergaransi 98,8% uptime untuk layanan internet.
     </p>
 
-    <!-- Baris 1: Manage Service + Kemitraan -->
     <div class="row row-top">
       <div class="card">
         <img src="manage-service.jpg" alt="Manage Service">
@@ -94,7 +77,6 @@
       </div>
     </div>
 
-    <!-- Baris 2: Paket -->
     <div class="row packages">
       <div class="card">
         <img src="paket-broadband.jpg" alt="Paket Broadband">
@@ -125,7 +107,6 @@
     </div>
   </section>
 
-<!-- Footer -->
 <?php include "../assets/component/footer.php" ?>
 
   <script src="../assets/js/script.js"></script>
