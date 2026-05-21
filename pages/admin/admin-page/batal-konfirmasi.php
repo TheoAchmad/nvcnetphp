@@ -17,6 +17,7 @@ $stmt2 = $conn->prepare("UPDATE pembelian SET status_pembelian = 'terputus' WHER
 $stmt2->bind_param("i", $id_pelanggan);
 $stmt2->execute();
 
-header("Location: /projeknvcnet/pages/admin/index.php");
+// ⚠️ PERBAIKAN: Mundur 1 folder untuk mengakses index.php admin dan arahkan kembali ke halaman pelanggan
+header("Location: ../index.php?page=pelanggan");
 exit;
 ?>
