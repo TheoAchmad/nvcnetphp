@@ -3,7 +3,7 @@
 <meta name="description" content="NVC Network by Provitel - Penyedia layanan internet cepat, stabil, dan terjangkau di Banyuwangi.">
 <title>NVC Network by Provitel</title>
 
-<link rel="icon" href="<?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/') !== false) ? '../assets/gambar/Enhance_the_uploaded-removebg-preview.png' : 'assets/gambar/nvc.png'; ?>" type="image/x-icon">
+<link rel="icon" href="<?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/') !== false) ? '../assets/gambar/nvc.png' : 'assets/gambar/nvc.png'; ?>" type="image/x-icon">
 
 <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/') !== false) ? '../assets/css/style.css' : 'assets/css/style.css'; ?>">
 
