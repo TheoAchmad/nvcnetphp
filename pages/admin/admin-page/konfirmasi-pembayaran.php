@@ -10,6 +10,7 @@ if ($id_pembelian && $tanggal_baru) {
   $stmt->execute();
 }
 
-header("Location: /projeknvcnet/pages/admin/index.php?page=pembelian");
+// ⚠️ PERBAIKAN: Mundur 1 folder untuk mengakses index.php admin
+header("Location: ../index.php?page=pembelian");
 exit;
 ?>

@@ -18,7 +18,8 @@ $total  = $result ? $result->num_rows : 0;
   <div class="nvc-card">
     <div class="nvc-card-header">
       <h4 class="nvc-card-title"><i class="ti ti-users"></i> Data Pelanggan <span class="nvc-badge nvc-badge-blue" style="margin-left:6px"><?= $total ?></span></h4>
-      <a href="/projeknvcnet/pages/admin/admin-page/form-pelanggan.php" class="btn-nvc btn-nvc-primary">
+      
+      <a href="admin-page/form-pelanggan.php" class="btn-nvc btn-nvc-primary">
         <i class="ti ti-plus"></i> Tambah Pelanggan
       </a>
     </div>
@@ -64,10 +65,12 @@ $total  = $result ? $result->num_rows : 0;
               <td><span class="nvc-badge <?= $badge ?>"><?= ucfirst($st) ?></span></td>
               <td>
                 <div class="nvc-actions">
-                  <a href="/projeknvcnet/pages/admin/admin-page/form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>"
+                  
+                  <a href="admin-page/form-pelanggan.php?id=<?= $row['id_pelanggan'] ?>"
                      class="btn-nvc btn-nvc-sm btn-nvc-edit">
                     <i class="ti ti-pencil"></i> Edit
                   </a>
+
                   <?php if ($st === 'booking'): ?>
                     <form method="POST" action="admin-page/konfirmasi-pelanggan.php" style="margin:0">
                       <input type="hidden" name="id_pelanggan" value="<?= $row['id_pelanggan'] ?>">
