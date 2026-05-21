@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$user = "theogusss";
+$user = "ojokerro_theogusss";
 $pass = "theoachmadalfareza";
 $db   = "ojokerro_nvcnetwork";
 
