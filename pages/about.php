@@ -57,7 +57,7 @@
 
     <div class="row row-top">
       <div class="card">
-        <img src="../assets/gambar/mng.jpeg" alt="Manage Service">
+        <img src="../assets/gambar/mng.jpg" alt="Manage Service">
         <h3>Manage Service</h3>
         <p>
           Kebutuhan Teknologi Informasi yang semakin hari semakin kompleks dapat tertolong dengan solusi Manage Service yang kami tawarkan. Kami menyediakan berbagai macam solusi yang memudahkan pengelolaan kebutuhan IT anda secara efisien serta dapat meningkatkan performa bisnis anda dari sisi Teknologi.
