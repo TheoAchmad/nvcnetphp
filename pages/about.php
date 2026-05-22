@@ -57,7 +57,7 @@
 
     <div class="row row-top">
       <div class="card">
-        <img src="manage-service.jpg" alt="Manage Service">
+        <img src="../assets/gambar/mng.jpeg" alt="Manage Service">
         <h3>Manage Service</h3>
         <p>
           Kebutuhan Teknologi Informasi yang semakin hari semakin kompleks dapat tertolong dengan solusi Manage Service yang kami tawarkan. Kami menyediakan berbagai macam solusi yang memudahkan pengelolaan kebutuhan IT anda secara efisien serta dapat meningkatkan performa bisnis anda dari sisi Teknologi.
@@ -68,7 +68,7 @@
       </div>
 
       <div class="card">
-        <img src="rt-rw-net.jpg" alt="Kemitraan RT/RW net">
+        <img src="../assets/gambar/mitra.jpg" alt="Kemitraan RT/RW net">
         <h3>Kemitraan RT-RW net</h3>
         <p>
           Kami juga menyediakan koneksi internet bagi anda yang ingin membangun RT/RWnet Murah dan Mudah. Akses Internet CEPAT Serta Legal, Pelayanan 24 Jam. Bisa dipasang dimana saja Anda berada di Seluruh Indonesia. Terhubung langsung dengan data center APIII via METRO-E. Koneksi stabil (Download dan Upload simetris/seimbang).
@@ -78,7 +78,7 @@
 
     <div class="row packages">
       <div class="card">
-        <img src="paket-broadband.jpg" alt="Paket Broadband">
+        <img src="../assets/gambar/family.jpg" alt="Paket Broadband">
         <h3>Paket Broadband</h3>
         <p>
           Merupakan koneksi internet dengan menggunakan media akses berteknologi nirkabel dan Fiber Optic yang dapat diakses selama 24 jam. Unlimited dan tanpa batasan quota. Dengan jaringan internet ini pelanggan akan menerima bandwidth Up to 1-50Mbps.
@@ -87,7 +87,7 @@
       </div>
 
       <div class="card">
-        <img src="paket-dedicated.jpg" alt="Paket Internet Dedicated">
+        <img src="../assets/gambar/express.jpg" alt="Paket Internet Dedicated">
         <h3>Paket Internet Dedicated</h3>
         <p>
           Dedicated Connection adalah koneksi yang dirancang untuk selalu terhubung ke Internet. Internet Dedicated Connection memungkinkan pelanggan Corporate memiliki koneksi internet yang cepat dan andal selama 24 jam. Kami meningkatkan konektivitas menggunakan protokol berbasis IP atau TDM.
@@ -96,7 +96,7 @@
       </div>
 
       <div class="card">
-        <img src="paket-ip.jpg" alt="Paket Dedicated IP Public">
+        <img src="../assets/gambar/sonic.jpg" alt="Paket Dedicated IP Public">
         <h3>Paket Dedicated IP Public</h3>
         <p>
           Produk unggulan ini digunakan untuk anda yang ingin memiliki dedicated IP untuk perangkat elektronik / komputer anda. Dengan dedicated IPv4, perangkat anda dapat diakses secara publik/internet. Cocok untuk server, aplikasi bisnis, VPN, Database Online, dan layanan enterprise.
