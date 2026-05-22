@@ -148,7 +148,7 @@ $page = $_GET['page'] ?? 'dashboard';
                   <div class="flex-grow-1 ms-3">
                     <h6 class="mb-1">Admin NVC</h6> <span>Administrator</span>
                   </div>
-                  <a href="../../index.php" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+                  <a href="../../" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
                 </div>
               </div>
               
