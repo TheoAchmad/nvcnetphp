@@ -27,7 +27,7 @@
     <a href="#" class="logo-nav"><img src="../assets/gambar/nvc.png" alt="Logo NVC Network"></a>
 
     <div class="navigasi">
-      <a href="../index.php">HOME</a>
+      <a href="../">HOME</a>
       <a href="" class="active">ABOUT US</a>
       <a href="../pages/coverage.php">COVERAGE</a>
       <a href="../pages/contact.php">CONTACT</a>
