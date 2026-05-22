@@ -40,10 +40,9 @@
     <div class="slider-container">
       <div class="slider" id="slider">
         <div class="slide"><img src="../assets/gambar/Gemini_Generated_Image_ea8gukea8gukea8g.png" alt="Foto 1"></div>
-        <div class="slide"><img src="foto2.jpg" alt="Foto 2"></div>
-        <div class="slide"><img src="foto3.jpg" alt="Foto 3"></div>
-        <div class="slide"><img src="foto4.jpg" alt="Foto 4"></div>
-        <div class="slide"><img src="foto5.jpg" alt="Foto 5"></div>
+        <div class="slide"><img src="../assets/gambar/foto2.jpeg" alt="Foto 2"></div>
+        <div class="slide"><img src="../assets/gambar/foto3.jpeg" alt="Foto 3"></div>
+        <div class="slide"><img src="../assets/gambar/foto4.jpeg" alt="Foto 4"></div>
       </div>
       <button class="slider-btn prev" id="prevBtn">&#10094;</button>
       <button class="slider-btn next" id="nextBtn">&#10095;</button>
