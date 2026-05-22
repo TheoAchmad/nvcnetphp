@@ -52,7 +52,7 @@ function showSlide(i) {
   else if (i >= slides.length) index = 0;
   else index = i;
 
-  slider.style.transform = `t ranslateX(${-index * 100}%)`;
+  slider.style.transform = `translateX(${-index * 100}%)`;
 }
 
 function autoSlide() {
@@ -74,3 +74,15 @@ function resetInterval() {
   interval = setInterval(autoSlide, 3000);
 }
 
+// Touch / swipe support (mobile)
+let touchStartX = 0;
+slider.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].clientX;
+}, { passive: true });
+slider.addEventListener('touchend', (e) => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) {
+    diff > 0 ? showSlide(index + 1) : showSlide(index - 1);
+    resetInterval();
+  }
+}, { passive: true });
